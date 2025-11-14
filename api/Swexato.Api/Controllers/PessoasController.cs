@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Swexato.Api.Data;
 using Swexato.Api.Models;
 using Swexato.Api.Services;
+using Microsoft.EntityFrameworkCore; // <-- necessário para ToListAsync, FindAsync, etc.
+
 
 namespace Swexato.Api.Controllers
 {
