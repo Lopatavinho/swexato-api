@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "suVLNDyl4d4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lopap\\swexato-api\\api\\Swexato.Api\\Swexato.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lopap\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "C:\\Users\\lopap\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
