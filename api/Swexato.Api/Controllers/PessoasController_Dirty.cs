@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace Swexato.Api.Controllers
 {
-    // ESTE ARQUIVO É PROPOSITALMENTE "SUJO" — duplica lógica de validação e usa processamento complexo.
     [ApiController]
     [Route("api/[controller]/dirty")]
     public class PessoasController_Dirty : ControllerBase
@@ -17,13 +16,10 @@ namespace Swexato.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> CriarDirty([FromBody] Pessoa p)
         {
-            // Validação copiada — viola DRY (duplicação de lógica).
             var cpf = Regex.Replace(p.CPF ?? "", @"\D", "");
             if (cpf.Length != 11) return BadRequest(new { error = "CPF inválido (length)" });
             if (cpf.Distinct().Count() == 1) return BadRequest(new { error = "CPF inválido (repetido)" });
 
-            // Aqui vem um processamento exagerado e confuso para calcular dígitos — VIOLA KISS.
-            // (Código propositalmente longo e difícil de entender)
             int[] nums = cpf.Select(c => int.Parse(c.ToString())).ToArray();
             bool ok1=false;
             {

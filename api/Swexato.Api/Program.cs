@@ -4,7 +4,6 @@ using Swexato.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Connection string via environment variables (set by docker-compose)
 var conn = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? Environment.GetEnvironmentVariable("CONN_STRING")
     ?? "Host=localhost;Port=5432;Database=swexato;Username=swexato;Password=swexato";
@@ -23,7 +22,6 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    // NÃO execute migrations automaticamente em produção; para desenvolvimento aqui pode ser OK:
     db.Database.EnsureCreated();
 }
 
